@@ -1,0 +1,7 @@
+_minted-main/
+*.aux
+*.log
+*.lol
+main.pdf
+*.toc
+*.out

@@ -1,0 +1,46 @@
+\documentclass[cn,11pt,chinese]{elegantbook}
+
+\title{优美的 \LaTeX{} 书籍模板}
+\subtitle{Elegant\LaTeX{} 经典之作}
+
+\author{bleedingfight}
+\institute{Elegant\LaTeX{} Program}
+\date{\today}
+\version{4.0.1}
+\bioinfo{自定义}{信息}
+
+\extrainfo{温柔正确的人总是难以生存，因为这世界既不温柔，也不正确。—— 比企谷八幡}
+\setcounter{tocdepth}{3}
+\newcommand{\dollar}{\mbox{\textdollar}}
+\lstset{
+  mathescape = false}
+\logo{logo-blue.png}
+\cover{cover.jpg}
+
+% 本文档命令
+\usepackage{array}
+\newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}
+
+\begin{document}
+
+\maketitle
+\frontmatter
+
+\chapter*{特别声明}
+\markboth{Introduction}{前言}
+
+在过去的 2019 年，\href{https://elegantlatex.org/}{Elegant\LaTeX{}} 系列模板均逐步上线 \href{https://github.com/ElegantLaTeX}{GitHub}、\href{https://ctan.org/pkg/elegantbook}{CTAN}、\href{https://www.overleaf.com/latex/templates/elegantbook-template/zpsrbmdsxrgy}{Overleaf} 以及 \href{https://gitee.com/ElegantLaTeX/ElegantBook}{Gitee} 上。截止到 2019 年底，ElegantNote、ElegantBook、ElegantPaper 三个模板在 GitHub 上的收藏数达到了 194、333 和 220，从 2019 年 5 月开启捐赠之后收到了用户 33 笔合计超过 1500 元的捐赠，用户群人数也超过了 400 人。这些数字的背后，反映出 Elegant\LaTeX{} 越来越受用户的喜爱，在此非常感谢大家。
+\vskip 1.5cm
+
+\begin{flushright}
+bleedingfight\\
+\today
+\end{flushright}
+
+\tableofcontents
+\listoflistings
+%\listofchanges
+
+\mainmatter
+\input{contents/basic}
+\end{document}
