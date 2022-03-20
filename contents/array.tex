@@ -1,0 +1,14 @@
+\section{Array}
+Array不同于Matrix对线性代数的支持，它提供了非常好用的标量和Array的混合操作。和Matrix一样Array也是模板类：
+\begin{cpp}
+Array<typename Scalar, int RowsAtCompileTime, int ColsAtCompileTime>
+\end{cpp}
+这里只展示了前三个模板参数，后三个和Matrix一样。常见的定义类型如下
+\begin{itemize}
+\item Array<float,Dynamic,1>：ArrayXf
+\item Array<float,3,1>：Aray3f
+\item Array<double,Dynamic,Dynamic>：ArrayXXd
+\item Array<double,3,3>：Array33d
+\end{itemize}
+
+
