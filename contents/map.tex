@@ -1,0 +1,46 @@
+\section{map对象}
+\begin{cpp}
+Map<Matrix<typename Scalar, int RowsAtCompileTime, int ColsAtCompileTime> >
+\end{cpp}
+构造 Map 变量，你需要两个信息：
+\begin{itemize}
+\item 指向定义数组、向量数据的指针。
+\item 数组、向量的形状。
+\end{itemize}
+你可以这样定义：
+\begin{cpp}
+Map<MatrixXf> mf(pf,rows,columns);
+\end{cpp}
+这里的pf是指向浮点数的数组数据的指针。你也可以使用固定大小的整数向量：
+\begin{cpp}
+Map<const Vector4i>mi(pi)
+\end{cpp}
+这里的pi是指向int的指针。这种情况不用指定size，因为size已经在Matrix、Array类型的对象中指定的。
+\begin{remark}
+Map 没有默认的构造函数，你必须传一个指针初始化对象。
+\end{remark}
+Map 可以容纳多种数据表示，有两个可选的模板选项。
+\begin{cpp}
+Map<typename MatrixType,int MapOptions,typename StrideType>
+\end{cpp}
+\begin{itemize}
+\item \textbf{MapOptions} 指定是否指针是 \href{https://eigen.tuxfamily.org/dox/group__enums.html#gga45fe06e29902b7a2773de05ba27b47a1ae12d0f8f869c40c76128260af2242bc8}{Aligned}或者是\href{https://eigen.tuxfamily.org/dox/group__enums.html#gga45fe06e29902b7a2773de05ba27b47a1a4e19dd09d5ff42295ba1d72d12a46686}{Unaligned}，默认是Unaligned。
+\item StrideType允许你指定自定义的内存布局，使用\href{https://eigen.tuxfamily.org/dox/classEigen_1_1Stride.html}{Stride}类。
+\end{itemize}
+\cppfile[firstline=9,lastline=12]{samples/test/src/test_map.cc}
+输出如下：
+\begin{bash}
+列优先：
+0 2 4 6
+1 3 5 7
+行优先
+0 1 2 3
+4 5 6 7
+使用stride之后的的行优先：
+0 1 2 3
+4 5 6 7
+\end{bash}
+你可以想使用其他Eigen对象一样使用Map对象：
+\cppfile[firstline=13,lastline=33]{samples/test/src/test_map.cc}
+所有的Eigen函数都能接收Map对象。你自己写的函数不能自动接收Eigen对象(\href{接收Eigen参数}{https://eigen.tuxfamily.org/dox/TopicFunctionTakingEigenTypes.html})。你可以在声明之后改变Array对象。
+
